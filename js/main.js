@@ -114,19 +114,21 @@ function showStats(data) {
                 downloadInfoHTML += "<h4><span class='glyphicon glyphicon-download'></span>&nbsp;&nbsp;" +
                     "Download Info</h4>";
 
-                downloadInfoHTML += "<ul>";
+                downloadInfoHTML += "<table class='table dl-table'>";
+                downloadInfoHTML += "<thead><tr><td>Asset</td><td>Size</td><td>Downloads</td></tr></thead>"
 
                 $.each(releaseAssets, function(index, asset) {
+                    if (asset.name.includes('.yml') || asset.name.includes('.blockmap')) return;
                     var assetSize = (asset.size / 1048576.0).toFixed(2);
-                    var lastUpdate = asset.updated_at.split("T")[0];
 
-                    downloadInfoHTML += "<li><code>" + asset.name + "</code> (" + assetSize + "&nbsp;MiB) - " +
-                        "downloaded " + formatNumber(asset.download_count) + "&nbsp;times. " +
-                        "Last&nbsp;updated&nbsp;on&nbsp;" + lastUpdate + "</li>";
+                    downloadInfoHTML += "<tr><td>" + asset.name + "</td><td>" + assetSize + 
+                        "&nbsp;MB</td><td>" + formatNumber(asset.download_count) + "</td></tr>"
 
                     totalDownloadCount += asset.download_count;
                     releaseDownloadCount += asset.download_count;
                 });
+
+                downloadInfoHTML += "</table>";
             }
 
             html += "<div class='row " + releaseClassNames + "'>";

@@ -148,3 +148,18 @@ body {
     margin-top: 20px;
 }
 
+.dl-table {
+    width: 100%;
+}
+
+.dl-table thead {
+    font-weight: bold;
+}
+
+.dl-table tr td {
+    text-align: right;
+}
+
+.dl-table tr td:first-child {
+    text-align: left;
+}

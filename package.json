@@ -1,0 +1,14 @@
+{
+  "name": "github-release-stats",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:jamaljsr/github-release-stats.git",
+  "author": "jamaljsr",
+  "license": "MIT",
+  "scripts": {
+    "dev": "http-server ."
+  },
+  "devDependencies": {
+    "http-server": "^0.12.1"
+  }
+}
